@@ -6,5 +6,5 @@ import retrofit2.http.GET
 interface BrastlewarkApi {
 
     @GET("master/data.json")
-    suspend fun getTown(): TownEntity
+    suspend fun getPopulation(): TownEntity
 }

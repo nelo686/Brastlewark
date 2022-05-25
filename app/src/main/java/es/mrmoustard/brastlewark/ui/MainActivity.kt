@@ -1,7 +1,8 @@
-package es.mrmoustard.brastlewark
+package es.mrmoustard.brastlewark.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import es.mrmoustard.brastlewark.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
