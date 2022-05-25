@@ -1,0 +1,55 @@
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.sdk_compile
+    buildToolsVersion rootProject.ext.build_tools
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.sdk_min
+        targetSdkVersion rootProject.ext.sdk_target
+
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        debug {
+            testCoverageEnabled true
+            buildConfigField("String", "BASE_URL", "\"https://raw.githubusercontent.com/\"")
+        }
+
+        release {
+            minifyEnabled false
+            buildConfigField("String", "BASE_URL", "\"https://raw.githubusercontent.com/\"")
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+
+    testOptions {
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
+
+        unitTests.returnDefaultValues = true
+
+        unitTests.all {
+            useJUnitPlatform()
+        }
+    }
+}

@@ -1,0 +1,20 @@
+plugins {id 'com.android.library'}
+apply from: "../base.gradle"
+
+dependencies {
+    implementation project(":domain")
+
+    implementation parent.ext.android.room_ktx
+    implementation parent.ext.android.room_runtime
+    kapt parent.ext.android.room_compiler
+
+    implementation parent.ext.kotlin.values()
+
+    implementation parent.ext.network.retrofit
+    implementation parent.ext.network.retrofitConverter
+    implementation parent.ext.network.okhttpInterceptor
+    implementation parent.ext.network.moshi
+    kapt parent.ext.network.moshiCodegen
+
+    testImplementation parent.ext.test.values()
+}

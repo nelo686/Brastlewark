@@ -1,0 +1,15 @@
+plugins {id 'com.android.library'}
+apply from: "../base.gradle"
+
+dependencies {
+
+    implementation parent.ext.kotlin.arrowCore
+    implementation parent.ext.kotlin.stdlib
+
+    testImplementation parent.ext.test.junit
+    testRuntimeOnly parent.ext.test.junit_engine
+    testImplementation parent.ext.test.mockito_kotlin
+    testImplementation parent.ext.test.mockito_core
+    testImplementation parent.ext.test.android_core_test
+    testImplementation 'com.squareup.retrofit2:retrofit-mock:2.9.0'
+}
