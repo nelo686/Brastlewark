@@ -9,25 +9,17 @@ import java.net.HttpURLConnection
 
 class ErrorHandlerImpl : ErrorHandler {
 
-    override fun getError(throwable: Throwable): DomainError {
-        return when (throwable) {
+    override fun getError(throwable: Throwable): DomainError =
+        when (throwable) {
             is IOException -> Network
             is HttpException -> {
                 when(throwable.code()) {
-                    // not found
                     HttpURLConnection.HTTP_NOT_FOUND -> NotFound
-
-                    // access denied
                     HttpURLConnection.HTTP_FORBIDDEN -> AccessDenied
-
-                    // unavailable service
                     HttpURLConnection.HTTP_UNAVAILABLE -> ServiceUnavailable
-
-                    // all the others will be treated as unknown error
                     else -> Unknown
                 }
             }
             else -> Unknown
         }
-    }
 }
