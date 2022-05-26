@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Brastlewark</string>
+
+    <string name="access_denied_error">Access denied</string>
+    <string name="network_error">Network error</string>
+    <string name="not_found_error">Item not found</string>
+    <string name="unavailable_service_error">Unavailable service</string>
+    <string name="something_happen_error">Ups! Something went wrong</string>
 </resources>
