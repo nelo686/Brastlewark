@@ -18,7 +18,15 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvGnomes"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:items="@{vm.data.items}"
+            app:spanCount="2"
+            tools:listitem="@layout/view_gnome_item" />
 
         <ProgressBar
             android:id="@+id/loader"

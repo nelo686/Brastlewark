@@ -44,4 +44,7 @@
   <dimen name="dimen_48">48dp</dimen>
   <dimen name="dimen_50">50dp</dimen>
 
+  <dimen name="size_icon">30dp</dimen>
+  <dimen name="size_image">100dp</dimen>
+  <dimen name="size_item">240dp</dimen>
 </resources>

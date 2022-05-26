@@ -40,7 +40,7 @@ class GnomeListViewModel(
 
     private fun handleGetPopulationSuccess(town: Town) {
         data.hideLoading()
-        var a=0
+        data.updateList(items = town.population)
     }
 
     fun onItemClicked(item: Gnome) {

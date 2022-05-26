@@ -13,4 +13,22 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="TextNormal">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="TextNormal.TwoLines">
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">2</item>
+    </style>
+
+    <style name="TextNormal.Center">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="TextNormal.Center.TwoLines">
+        <item name="android:ellipsize">end</item>
+        <item name="android:lines">2</item>
+    </style>
 </resources>
