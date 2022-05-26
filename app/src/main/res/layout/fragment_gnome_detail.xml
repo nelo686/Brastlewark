@@ -4,145 +4,174 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="vm"
             type="es.mrmoustard.brastlewark.ui.gnome.detail.GnomeDetailViewModel" />
     </data>
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clRoot"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/clGnomeDetail"
+        <ScrollView
+            android:id="@+id/svContent"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:paddingBottom="10dp">
 
-            <ImageView
-                android:id="@+id/ivAvatar"
-                android:layout_width="0dp"
-                android:layout_height="300dp"
-                android:scaleType="fitCenter"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/tvName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivAvatar"
-                tools:text="Nombre del gnome" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivAvatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="260dp"
+                    android:scaleType="centerCrop"
+                    app:imageUrl="@{vm.data.item.thumbnail}"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@tools:sample/avatars" />
 
-            <TextView
-                android:id="@+id/tvAge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="12dp"
-                app:layout_constraintEnd_toStartOf="@id/tvHeight"
-                app:layout_constraintHorizontal_chainStyle="spread"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvName"
-                tools:text="Edad: 154" />
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@{vm.data.item.name}"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/ivAvatar"
+                    tools:text="Title" />
 
-            <TextView
-                android:id="@+id/tvHeight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toStartOf="@id/tvWeight"
-                app:layout_constraintStart_toEndOf="@id/tvAge"
-                app:layout_constraintTop_toTopOf="@id/tvAge"
-                tools:text="Altura: 107.75" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clHighlights"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/dark_gray"
+                    android:paddingStart="10dp"
+                    android:paddingTop="15dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="15dp"
+                    app:layout_constraintTop_toBottomOf="@id/tvTitle">
 
-            <TextView
-                android:id="@+id/tvWeight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tvHeight"
-                app:layout_constraintTop_toTopOf="@id/tvAge"
-                tools:text="Peso: 39.06" />
+                    <TextView
+                        android:id="@+id/tvAge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="@{@string/gnome_detail_age(vm.data.item.age)}"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tvHair"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:layout_constraintStart_toStartOf="@id/tvAge"
-                app:layout_constraintTop_toBottomOf="@id/tvAge"
-                app:layout_goneMarginTop="12dp"
-                android:text="Hair color" />
+                    <TextView
+                        android:id="@+id/tvHeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{@string/gnome_detail_height(vm.data.item.height)}"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvAge" />
 
-            <View
-                android:id="@+id/vwColorHair"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="4dp"
-                app:layout_constraintBottom_toBottomOf="@id/tvHair"
-                app:layout_constraintStart_toEndOf="@id/tvHair"
-                app:layout_constraintTop_toTopOf="@id/tvHair"
-                tools:text="Altura: 107.75" />
+                    <TextView
+                        android:id="@+id/tvWeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{@string/gnome_detail_weight(vm.data.item.weight)}"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvHeight" />
 
-            <TextView
-                android:id="@+id/tvSex"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="12dp"
-                android:drawablePadding="8dp"
-                app:layout_constraintEnd_toEndOf="@id/tvWeight"
-                app:layout_constraintTop_toBottomOf="@id/tvAge"
-                tools:text="Varón" />
+                    <TextView
+                        android:id="@+id/tvHairColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{@string/gnome_detail_hair_color(vm.data.item.hairColor)}"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvWeight" />
 
-            <TextView
-                android:id="@+id/tvProfessions"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="16dp"
-                android:text="Professions"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvHair" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/tvProfessionsData"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvProfessions"
-                tools:text="Albañil, carpintero y cura." />
+                <TextView
+                    android:id="@+id/tvProfessionsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/gnome_detail_professions"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="22sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clHighlights" />
 
-            <TextView
-                android:id="@+id/tvFriends"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="16dp"
-                android:text="Friends"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvProfessionsData" />
+                <View
+                    android:id="@+id/vProfessionsLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@+id/tvProfessionsTitle" />
 
-            <TextView
-                android:id="@+id/tvFriendsData"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvFriends"
-                tools:text="Pablo, Pedro y Juan." />
+                <TextView
+                    android:id="@+id/tvProfessions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@{vm.data.item.professions.toString()}"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toBottomOf="@id/vProfessionsLine"
+                    tools:text="Professions" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+                <TextView
+                    android:id="@+id/tvFriendsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/gnome_detail_friends"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="22sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvProfessions" />
+
+                <View
+                    android:id="@+id/vFriendsLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@+id/tvFriendsTitle" />
+
+                <TextView
+                    android:id="@+id/tvFriends"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@{vm.data.item.friends.toString()}"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toBottomOf="@id/vFriendsLine"
+                    tools:text="Friends" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -11,7 +11,7 @@ class GnomeDetailData {
     private val _isLoading: MutableLiveData<Boolean> = MutableLiveData(false)
     val isLoading: LiveData<Boolean> = _isLoading
 
-    private val _item: MutableLiveData<Gnome> = MutableLiveData(Gnome())
+    private val _item: MutableLiveData<Gnome> = MutableLiveData(null)
     val item: LiveData<Gnome> = _item
 
     private val _message = MutableLiveData<Event<SnackbarStyle>>()
@@ -23,6 +23,10 @@ class GnomeDetailData {
 
     fun hideLoading() {
         _isLoading.value = false
+    }
+
+    fun updateGnome(item: Gnome) {
+        _item.value = item
     }
 
     fun showMessage(event: Event<SnackbarStyle>) {

@@ -6,4 +6,11 @@
     <string name="not_found_error">Item not found</string>
     <string name="unavailable_service_error">Unavailable service</string>
     <string name="something_happen_error">Ups! Something went wrong</string>
+
+    <string name="gnome_detail_age">Age %1$s</string>
+    <string name="gnome_detail_height">Height %1$s</string>
+    <string name="gnome_detail_weight">Weight %1$s</string>
+    <string name="gnome_detail_hair_color">%1$s hair color</string>
+    <string name="gnome_detail_professions">Professions</string>
+    <string name="gnome_detail_friends">Friends</string>
 </resources>

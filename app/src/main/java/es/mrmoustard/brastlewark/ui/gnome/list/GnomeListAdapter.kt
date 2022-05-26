@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import es.mrmoustard.brastlewark.databinding.ViewGnomeItemBinding
-import es.mrmoustard.brastlewark.ui.common.load
 import es.mrmoustard.brastlewark.ui.common.loadd
 import es.mrmoustard.domain.model.Gnome
 
