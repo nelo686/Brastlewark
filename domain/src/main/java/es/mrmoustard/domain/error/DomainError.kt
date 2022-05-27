@@ -6,4 +6,6 @@ sealed class DomainError {
     object AccessDenied : DomainError()
     object ServiceUnavailable : DomainError()
     object Unknown : DomainError()
+
+    data class DefaultError(val message: String) : DomainError()
 }

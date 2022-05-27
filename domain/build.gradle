@@ -7,6 +7,8 @@ dependencies {
     implementation parent.ext.kotlin.stdlib
 
     testImplementation parent.ext.test.junit
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly parent.ext.test.junit_engine
     testImplementation parent.ext.test.mockito_kotlin
     testImplementation parent.ext.test.mockito_core
