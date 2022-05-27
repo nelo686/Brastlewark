@@ -69,9 +69,6 @@ class GnomeListFragment : BaseFragment() {
                 } else {
                     binding?.ivClearSearch?.invisible()
                 }
-//                viewModel.cancelTimer()
-//                if (text != null && text.length > 2) {
-//                }
             }
 
             override fun afterTextChanged(editable: Editable?) {

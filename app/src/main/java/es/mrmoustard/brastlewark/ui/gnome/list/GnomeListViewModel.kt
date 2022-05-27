@@ -64,20 +64,18 @@ class GnomeListViewModel(
         if (!editable.isNullOrBlank()) {
             data.updateFilteredList(items = emptyList())
             val searchCriteria = editable.toString()
-            val matches: MutableList<Gnome> = mutableListOf()
             timerFilterGnomeList = Timer("FilterGnomeList", false)
             timerFilterGnomeList?.schedule(object : TimerTask() {
                 override fun run() {
                     if (!data.allItems.value.isNullOrEmpty()) {
                         data.allItems.value?.forEach { gnome ->
                             if (gnome.name.contains(searchCriteria, true)) {
-                                matches.add(gnome)
+                                data.addFilteredItem(item = gnome)
                             }
                         }
                     }
                 }
             }, DELAY)
-            data.updateFilteredList(matches)
         } else {
             // filtrado vacio
             data.updateFilteredList(data.allItems.value!!)

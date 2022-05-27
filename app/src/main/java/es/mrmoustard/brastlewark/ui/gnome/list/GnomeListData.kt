@@ -11,8 +11,8 @@ class GnomeListData {
     private val _isLoading: MutableLiveData<Boolean> = MutableLiveData(false)
     val isLoading: LiveData<Boolean> = _isLoading
 
-    private val _items: MutableLiveData<List<Gnome>> = MutableLiveData(emptyList())
-    val allItems: LiveData<List<Gnome>> = _items
+    private val _allItems: MutableLiveData<List<Gnome>> = MutableLiveData(emptyList())
+    val allItems: LiveData<List<Gnome>> = _allItems
 
     private val _filteredItems: MutableLiveData<List<Gnome>> = MutableLiveData(emptyList())
     val filteredItems: LiveData<List<Gnome>> = _filteredItems
@@ -24,26 +24,33 @@ class GnomeListData {
     val navigation: LiveData<Event<Gnome>> = _navigation
 
     fun showLoading() {
-        _isLoading.value = true
+        _isLoading.postValue(true)
     }
 
     fun hideLoading() {
-        _isLoading.value = false
+        _isLoading.postValue(false)
     }
 
     fun showMessage(event: Event<SnackbarStyle>) {
-        this._message.value = event
+        this._message.postValue(event)
     }
 
     fun updateAllItemsList(items: List<Gnome>) {
-        this._items.value = items
+        this._allItems.postValue(items)
     }
 
     fun updateFilteredList(items: List<Gnome>) {
-        this._filteredItems.value = items
+        this._filteredItems.postValue(items)
+    }
+
+    fun addFilteredItem(item: Gnome) {
+        _filteredItems.value?.toMutableList().let {
+            it?.add(item)
+            _filteredItems.postValue(it)
+        }
     }
 
     fun navigateToDetail(event: Event<Gnome>) {
-        _navigation.value = event
+        _navigation.postValue(event)
     }
 }

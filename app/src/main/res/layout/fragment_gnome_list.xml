@@ -56,13 +56,14 @@
             tools:listitem="@layout/view_gnome_item" />
 
         <TextView
+            style="@style/TextTitle.Center"
             android:id="@+id/tvEmptyFilterList"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:gravity="center"
             android:padding="80dp"
             android:text="@string/gnome_list_empty_search"
             android:visibility="gone"
+            app:isVisible="@{vm.data.filteredItems.empty}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
