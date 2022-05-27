@@ -78,6 +78,7 @@ class GnomeListFragment : BaseFragment() {
     }
 
     private fun navigateToDetail(item: Gnome) {
+        binding?.etSearch?.text?.clear()
         findNavController().navigate(GnomeListFragmentDirections.actionNavigationToDetail(item))
     }
 }

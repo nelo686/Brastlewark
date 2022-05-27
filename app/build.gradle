@@ -30,7 +30,7 @@ dependencies {
 
     implementation parent.ext.kotlin.values()
     implementation parent.ext.libs.values()
-    annotationProcessor parent.processors.values()
+    kapt parent.processors.values()
 
     implementation parent.ext.network.okhttp
     implementation parent.ext.network.okhttpInterceptor

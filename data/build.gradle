@@ -6,6 +6,7 @@ dependencies {
 
     implementation parent.ext.android.room_ktx
     implementation parent.ext.android.room_runtime
+    testImplementation 'org.junit.jupiter:junit-jupiter'
     kapt parent.ext.android.room_compiler
 
     implementation parent.ext.kotlin.values()

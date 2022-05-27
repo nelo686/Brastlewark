@@ -10,6 +10,10 @@
     <string name="gnome_list_search">Search for a gnome...</string>
     <string name="gnome_list_empty_search">Sorry, we didn\'t find any result</string>
 
+    <string name="gnome_detail_gender">gender</string>
+    <string name="gnome_detail_male_gender">Male</string>
+    <string name="gnome_detail_female_gender">Female</string>
+    <string name="gnome_detail_unknown_gender">Unknown</string>
     <string name="gnome_detail_age">Age %1$s years old</string>
     <string name="gnome_detail_height">Height %1$.2f inches</string>
     <string name="gnome_detail_weight">Weight %1$.2f pounds</string>

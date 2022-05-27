@@ -31,6 +31,7 @@ fun GnomeEntity.mapToDomainObject() =
         id = id,
         name = name.orEmpty(),
         thumbnail = thumbnail.orEmpty(),
+        gender = Gnome.getGnomeGender(name = name.orEmpty()),
         age = age,
         weight = weight,
         height = height,
