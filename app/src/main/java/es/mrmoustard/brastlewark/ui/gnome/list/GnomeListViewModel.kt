@@ -1,5 +1,6 @@
 package es.mrmoustard.brastlewark.ui.gnome.list
 
+import android.text.Editable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import es.mrmoustard.brastlewark.ui.common.ErrorMapper
@@ -10,12 +11,19 @@ import es.mrmoustard.domain.model.Gnome
 import es.mrmoustard.domain.model.Town
 import es.mrmoustard.domain.usecase.GetPopulationUseCase
 import kotlinx.coroutines.launch
+import java.util.*
 
 class GnomeListViewModel(
     val data: GnomeListData,
     private val useCase: GetPopulationUseCase,
     private val errorMapper: ErrorMapper
 ) : ViewModel() {
+
+    companion object {
+        private const val DELAY: Long = 600
+    }
+
+    private var timerFilterGnomeList: Timer? = null
 
     fun initialize() {
         viewModelScope.launch {
@@ -40,10 +48,39 @@ class GnomeListViewModel(
 
     private fun handleGetPopulationSuccess(town: Town) {
         data.hideLoading()
-        data.updateList(items = town.population)
+        data.updateAllItemsList(items = town.population)
+        data.updateFilteredList(items = town.population)
     }
 
     fun onItemClicked(item: Gnome) {
         data.navigateToDetail(Event(item))
+    }
+
+    fun cancelTimer() {
+        timerFilterGnomeList?.cancel()
+    }
+
+    fun filter(editable: Editable?) {
+        if (!editable.isNullOrBlank()) {
+            data.updateFilteredList(items = emptyList())
+            val searchCriteria = editable.toString()
+            val matches: MutableList<Gnome> = mutableListOf()
+            timerFilterGnomeList = Timer("FilterGnomeList", false)
+            timerFilterGnomeList?.schedule(object : TimerTask() {
+                override fun run() {
+                    if (!data.allItems.value.isNullOrEmpty()) {
+                        data.allItems.value?.forEach { gnome ->
+                            if (gnome.name.contains(searchCriteria, true)) {
+                                matches.add(gnome)
+                            }
+                        }
+                    }
+                }
+            }, DELAY)
+            data.updateFilteredList(matches)
+        } else {
+            // filtrado vacio
+            data.updateFilteredList(data.allItems.value!!)
+        }
     }
 }

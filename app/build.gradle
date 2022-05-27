@@ -30,8 +30,7 @@ dependencies {
 
     implementation parent.ext.kotlin.values()
     implementation parent.ext.libs.values()
-    implementation 'com.github.bumptech.glide:glide:4.13.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
+    annotationProcessor parent.processors.values()
 
     implementation parent.ext.network.okhttp
     implementation parent.ext.network.okhttpInterceptor

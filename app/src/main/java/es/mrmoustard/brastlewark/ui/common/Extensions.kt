@@ -8,9 +8,19 @@ import com.bumptech.glide.load.model.GlideUrl
 import com.bumptech.glide.load.model.LazyHeaders
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.snackbar.Snackbar
-import com.squareup.picasso.Picasso
 import es.mrmoustard.brastlewark.R
-import java.util.*
+
+fun View.visible() {
+    visibility = View.VISIBLE
+}
+
+fun View.invisible() {
+    visibility = View.INVISIBLE
+}
+
+fun View.gone() {
+    visibility = View.GONE
+}
 
 fun Activity.showMessage(view: View, style: SnackbarStyle) {
     val snackbar = Snackbar.make(view, style.message, Snackbar.LENGTH_SHORT)
@@ -18,29 +28,10 @@ fun Activity.showMessage(view: View, style: SnackbarStyle) {
     snackbar.show()
 }
 
-fun String.capitalizeIt(): String =
-    replaceFirstChar {
-        if (it.isLowerCase()) {
-            it.titlecase(Locale.getDefault())
-        } else {
-            it.toString()
-        }
-    }
-
 fun ImageView.load(url: String) {
-    Picasso
-        .get()
-        .load(url)
-        .resize(100, 100)
-        .centerCrop()
-        .placeholder(R.drawable.no_image_placeholder)
-        .error(R.drawable.no_image_available)
-        .into(this)
-}
-
-fun ImageView.loadd(url: String) {
     val glideUrl = GlideUrl(
-        url, LazyHeaders.Builder().addHeader(
+        url,
+        LazyHeaders.Builder().addHeader(
             "User-Agent",
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit / 537.36(KHTML, like Gecko) Chrome  47.0.2526.106 Safari / 537.36"
         ).build()

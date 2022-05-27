@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import es.mrmoustard.brastlewark.databinding.ViewGnomeItemBinding
-import es.mrmoustard.brastlewark.ui.common.loadd
+import es.mrmoustard.brastlewark.ui.common.load
 import es.mrmoustard.domain.model.Gnome
 
 class GnomeListAdapter (
@@ -37,7 +37,7 @@ class GnomeListAdapter (
         ): RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Gnome, listener: (Gnome) -> Unit) {
-            binding.ivAvatar.loadd(item.thumbnail)
+            binding.ivAvatar.load(item.thumbnail)
             binding.tvName.text = item.name
             itemView.setOnClickListener { listener(item) }
         }

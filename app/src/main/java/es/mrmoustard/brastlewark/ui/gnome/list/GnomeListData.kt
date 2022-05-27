@@ -12,7 +12,10 @@ class GnomeListData {
     val isLoading: LiveData<Boolean> = _isLoading
 
     private val _items: MutableLiveData<List<Gnome>> = MutableLiveData(emptyList())
-    val items: LiveData<List<Gnome>> = _items
+    val allItems: LiveData<List<Gnome>> = _items
+
+    private val _filteredItems: MutableLiveData<List<Gnome>> = MutableLiveData(emptyList())
+    val filteredItems: LiveData<List<Gnome>> = _filteredItems
 
     private val _message = MutableLiveData<Event<SnackbarStyle>>()
     val message: LiveData<Event<SnackbarStyle>> = _message
@@ -32,8 +35,12 @@ class GnomeListData {
         this._message.value = event
     }
 
-    fun updateList(items: List<Gnome>) {
+    fun updateAllItemsList(items: List<Gnome>) {
         this._items.value = items
+    }
+
+    fun updateFilteredList(items: List<Gnome>) {
+        this._filteredItems.value = items
     }
 
     fun navigateToDetail(event: Event<Gnome>) {

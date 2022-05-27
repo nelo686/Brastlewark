@@ -7,9 +7,12 @@
     <string name="unavailable_service_error">Unavailable service</string>
     <string name="something_happen_error">Ups! Something went wrong</string>
 
-    <string name="gnome_detail_age">Age %1$s</string>
-    <string name="gnome_detail_height">Height %1$s</string>
-    <string name="gnome_detail_weight">Weight %1$s</string>
+    <string name="gnome_list_search">Search for a gnome...</string>
+    <string name="gnome_list_empty_search">Sorry, we didn\'t find any result</string>
+
+    <string name="gnome_detail_age">Age %1$s years old</string>
+    <string name="gnome_detail_height">Height %1$.2f inches</string>
+    <string name="gnome_detail_weight">Weight %1$.2f pounds</string>
     <string name="gnome_detail_hair_color">%1$s hair color</string>
     <string name="gnome_detail_professions">Professions</string>
     <string name="gnome_detail_friends">Friends</string>
