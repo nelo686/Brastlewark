@@ -56,10 +56,6 @@ class GnomeListViewModel(
         data.navigateToDetail(Event(item))
     }
 
-    fun cancelTimer() {
-        timerFilterGnomeList?.cancel()
-    }
-
     fun filter(editable: Editable?) {
         if (!editable.isNullOrBlank()) {
             data.updateFilteredList(items = emptyList())

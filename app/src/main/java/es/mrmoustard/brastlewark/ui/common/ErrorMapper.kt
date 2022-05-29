@@ -9,6 +9,7 @@ class ErrorMapper(private val context: Context) {
 
     fun getMessage(error: DomainError): String =
         when (error) {
+            is DefaultError -> context.getString(R.string.default_error)
             AccessDenied -> context.getString(R.string.access_denied_error)
             Network -> context.getString(R.string.network_error)
             NotFound -> context.getString(R.string.not_found_error)

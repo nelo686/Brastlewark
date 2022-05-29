@@ -21,7 +21,6 @@ dependencies {
     implementation parent.ext.android.constraintLayout
     implementation parent.ext.android.material
     implementation parent.ext.android.recyclerView
-    implementation parent.ext.android.room_runtime
 
     implementation parent.ext.androidArch.lifecycle_runtime
     implementation parent.ext.androidArch.lifecycle_viewmodel_ktx
@@ -38,10 +37,12 @@ dependencies {
     implementation parent.ext.network.retrofitConverter
 
     testImplementation parent.ext.test.junit
+    testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly parent.ext.test.junit_engine
     testImplementation parent.ext.test.mockito_kotlin
     testImplementation parent.ext.test.mockito_core
     testImplementation parent.ext.test.mockito_inline
     testImplementation parent.ext.test.android_core_test
+    testImplementation parent.ext.test.coroutine_test
     testImplementation 'com.squareup.retrofit2:retrofit-mock:2.9.0'
 }

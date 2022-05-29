@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Brastlewark</string>
 
+    <string name="default_error">Default error</string>
     <string name="access_denied_error">Access denied</string>
     <string name="network_error">Network error</string>
     <string name="not_found_error">Item not found</string>
