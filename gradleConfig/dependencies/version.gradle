@@ -1,36 +1,36 @@
 ext {
-    kotlin_version = '1.6.21'
+    kotlin_version = '1.7.20'
     gradle_tools = '4.2.1'
     build_tools = '30.0.3'
-    nav_version = '2.4.2'
+    nav_version = '2.5.3'
 
-    sdk_compile = 32
+    sdk_compile = 33
     sdk_min = 23
-    sdk_target = 32
+    sdk_target = 33
 
-    androidActivityLifecycle_version = '1.4.0'
+    androidActivityLifecycle_version = '1.6.1'
     androidViewModelLifecycle_version = '2.3.1'
-    androidXCore_version = '1.7.0'
+    androidXCore_version = '1.9.0'
     annotation_version = '1.1.0'
-    appcompat_version = '1.4.1'
+    appcompat_version = '1.5.1'
     arrow_version = '1.1.3-alpha.14'
     constraintLayout_version = '2.1.4'
-    coroutines_version = '1.4.1'
+    coroutines_version = '1.6.4'
     fragmentx_version = '1.3.0'
     glide_version = '4.13.0'
     koin_version = '3.1.5'
-    lifecycle_version = '2.4.1'
+    lifecycle_version = '2.5.1'
     okhttp_version = '5.0.0-alpha.7'
     recyclerView_version = '1.2.1'
     retrofit_version = '2.9.0'
-    material_version = '1.6.0'
+    material_version = '1.7.0'
     moshi_version = '1.13.0'
 
-    junit_version = '5.8.2'
+    junit_version = '5.9.1'
     mockito_version = '3.2.0'
     mockito_kotlin_version = '4.0.0'
-    mockito_core_version = '4.5.0'
-    mockito_inline_version = '4.5.0'
+    mockito_core_version = '4.8.1'
+    mockito_inline_version = '4.8.1'
     androidXTest_version = '1.3.0'
     android_core_test_version = '2.1.0'
 

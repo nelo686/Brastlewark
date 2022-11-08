@@ -21,4 +21,5 @@
     <string name="gnome_detail_hair_color">%1$s hair color</string>
     <string name="gnome_detail_professions">Professions</string>
     <string name="gnome_detail_friends">Friends</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>

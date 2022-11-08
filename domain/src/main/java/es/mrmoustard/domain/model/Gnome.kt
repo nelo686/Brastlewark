@@ -27,3 +27,14 @@ data class Gnome(
             }
     }
 }
+
+fun getGnome() = (1..10).map {
+    Gnome(
+        id = it,
+        name = "name $it",
+        thumbnail = "https://loremflickr.com/320/240/dog?lock=$it",
+        hairColor = "Blue",
+        friends = listOf("dfgs", "dfvsv", "dfgsbgtr"),
+        professions = listOf("dfgs", "dfvsv", "dfgsbgtr")
+    )
+}
